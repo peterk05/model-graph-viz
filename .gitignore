@@ -1,0 +1,6 @@
+.venv/
+models/
+__pycache__/
+*.svg
+*.log
+.pytest_cache/

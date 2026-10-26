@@ -65,6 +65,16 @@ def test_hidden_constant_annotations_are_displayed(matmul_graph, tmp_path):
     assert "Constant" not in text
 
 
+def test_long_names_are_shortened_but_full_name_is_in_tooltip(tmp_path):
+    graph = Graph()
+    long_name = "__module.model.layers.0.mlp.down_proj/ov_ext::linear/MatMul"   # 60 characters
+    graph.add_node(long_name, "MatMul")
+    text, root = _render(graph, tmp_path)
+    labels = [t.text for t in root.iter(f"{SVG_NS}text")]
+    assert long_name not in labels                             # the label is cut with "…"
+    assert f'xlink:title="{long_name} (MatMul, id 0)"' in text   # hover shows all of it
+
+
 def test_reference_nodes_and_notes_render(tmp_path):
     graph = Graph()
     source = graph.add_node("mask", "Select")
@@ -72,7 +82,7 @@ def test_reference_nodes_and_notes_render(tmp_path):
         graph.add_edge(source.id, 0, graph.add_node(f"use{i}", "Add").id, 0, ["1"], "bool")
     result = Pipeline([DetachFanoutPass(min_uses=2)]).run(graph)
     text, _ = _render(result, tmp_path)
-    assert text.count("↳ Select #0 out 0") == 3
+    assert text.count(">↳ Select #0 out 0<") == 3      # the visible tag text (tooltips repeat it)
     assert "3 uses shown as" in text
 
 

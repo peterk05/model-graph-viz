@@ -83,6 +83,11 @@ class OpenVINOParser(ModelParser):
                 f"weights file not found: {str(weights)!r} (an OpenVINO IR model needs the .bin "
                 f"file next to the .xml file)"
             )
+        # Every IR file has a <net ...> root element near the top. Checking for it first gives
+        # a clear message for other .xml files instead of OpenVINO's generic one.
+        with open(path, encoding="utf-8", errors="replace") as file:
+            if "<net" not in file.read(4096):
+                raise ModelLoadError(f"{str(path)!r} is not an OpenVINO IR file (no <net> element)")
         try:
             import openvino as ov
         except ImportError as error:  # pragma: no cover - depends on the environment
@@ -90,8 +95,21 @@ class OpenVINOParser(ModelParser):
         try:
             return ov.Core().read_model(str(path))
         except Exception as error:  # OpenVINO raises RuntimeError with a long C++ message
-            first_line = str(error).strip().splitlines()[0] if str(error).strip() else type(error).__name__
-            raise ModelLoadError(f"OpenVINO could not read {str(path)!r}: {first_line}") from error
+            raise ModelLoadError(f"OpenVINO could not read {str(path)!r}: {_reason(error)}") from error
+
+
+def _reason(error: Exception) -> str:
+    """The useful line of an OpenVINO error.
+
+    OpenVINO messages start with lines like "Exception from src/.../core.cpp:84:" and
+    "Check '...' failed at ...", which say where in C++ it failed, not why. The last
+    other line is the reason, e.g. "Start-end tags mismatch at offset 299".
+    """
+    lines = [line.strip() for line in str(error).splitlines() if line.strip()]
+    reasons = [line for line in lines if not line.startswith(("Exception from", "Check '"))]
+    if reasons:
+        return reasons[-1]
+    return lines[-1] if lines else type(error).__name__
 
 
 def _read_attributes(op: Any) -> dict[str, str]:

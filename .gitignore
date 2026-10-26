@@ -17,3 +17,7 @@ practice/
 # Editor settings
 .vscode/
 *.code-workspace
+
+# Local helper files, not part of the submission
+CLAUDE.md
+scripts/finish_submission.sh

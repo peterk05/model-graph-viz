@@ -39,7 +39,7 @@ class TransformationPass(ABC):
         """Transform ``graph`` in place and return it."""
 
     @classmethod
-    def from_options(cls, options: dict[str, str]) -> "TransformationPass":
+    def from_options(cls, options: dict[str, str]) -> TransformationPass:
         """Build the pass from string options (as given on the command line).
 
         Passes without options can use this default. Passes with options override it.

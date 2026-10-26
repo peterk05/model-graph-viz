@@ -12,6 +12,7 @@
 <!-- n0 -->
 <g id="node1" class="node">
 <title>n0</title>
+<g id="a_node1"><a xlink:title="hidden_states (Parameter, id 0)">
 <polygon fill="#d8f0d8" stroke="none" points="1.88,-2245.5 1.88,-2336.5 90.12,-2336.5 90.12,-2245.5 1.88,-2245.5"/>
 <text xml:space="preserve" text-anchor="start" x="16.38" y="-2324" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="10.00">Parameter</text>
 <text xml:space="preserve" text-anchor="start" x="17.12" y="-2306.15" font-family="Helvetica,sans-Serif" font-size="8.00" fill="#555555">hidden_states</text>
@@ -21,10 +22,13 @@
 <polygon fill="none" stroke="#aaaaaa" points="7.88,-2251.5 7.88,-2264.5 84.12,-2264.5 84.12,-2251.5 7.88,-2251.5"/>
 <text xml:space="preserve" text-anchor="start" x="10.75" y="-2255.85" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 64]</text>
 <polygon fill="none" stroke="#333333" points="1.88,-2245.5 1.88,-2336.5 90.12,-2336.5 90.12,-2245.5 1.88,-2245.5"/>
+</a>
+</g>
 </g>
 <!-- n2 -->
 <g id="node2" class="node">
 <title>n2</title>
+<g id="a_node2"><a xlink:title="Power_65 (Power, id 2)">
 <polygon fill="#ffffff" stroke="none" points="79.62,-2099.5 79.62,-2213.5 190.38,-2213.5 190.38,-2099.5 79.62,-2099.5"/>
 <polygon fill="#f3f3f3" stroke="none" points="85.62,-2194.5 85.62,-2207.5 134,-2207.5 134,-2194.5 85.62,-2194.5"/>
 <polygon fill="none" stroke="#aaaaaa" points="85.62,-2194.5 85.62,-2207.5 134,-2207.5 134,-2194.5 85.62,-2194.5"/>
@@ -40,6 +44,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="85.62,-2105.5 85.62,-2118.5 184.38,-2118.5 184.38,-2105.5 85.62,-2105.5"/>
 <text xml:space="preserve" text-anchor="start" x="99.75" y="-2109.85" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 64]</text>
 <polygon fill="none" stroke="#333333" points="79.62,-2099.5 79.62,-2213.5 190.38,-2213.5 190.38,-2099.5 79.62,-2099.5"/>
+</a>
+</g>
 </g>
 <!-- n0&#45;&gt;n2 -->
 <g id="edge1" class="edge">
@@ -53,6 +59,7 @@
 <!-- n8 -->
 <g id="node6" class="node">
 <title>n8</title>
+<g id="a_node6"><a xlink:title="Divide_73 (Divide, id 8)">
 <polygon fill="#ffffff" stroke="none" points="70.62,-1547 70.62,-1661 181.38,-1661 181.38,-1547 70.62,-1547"/>
 <polygon fill="#f3f3f3" stroke="none" points="76.62,-1642 76.62,-1655 125,-1655 125,-1642 76.62,-1642"/>
 <polygon fill="none" stroke="#aaaaaa" points="76.62,-1642 76.62,-1655 125,-1655 125,-1642 76.62,-1642"/>
@@ -68,6 +75,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="76.62,-1553 76.62,-1566 175.38,-1566 175.38,-1553 76.62,-1553"/>
 <text xml:space="preserve" text-anchor="start" x="90.75" y="-1557.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 64]</text>
 <polygon fill="none" stroke="#333333" points="70.62,-1547 70.62,-1661 181.38,-1661 181.38,-1547 70.62,-1547"/>
+</a>
+</g>
 </g>
 <!-- n0&#45;&gt;n8 -->
 <g id="edge5" class="edge">
@@ -81,6 +90,7 @@
 <!-- n26 -->
 <g id="node19" class="node">
 <title>n26</title>
+<g id="a_node19"><a xlink:title="residual (Add, id 26)">
 <polygon fill="#ffffff" stroke="none" points="19.62,-822.88 19.62,-925.12 134.38,-925.12 134.38,-822.88 19.62,-822.88"/>
 <polygon fill="#f3f3f3" stroke="none" points="27.62,-904.12 27.62,-917.12 76,-917.12 76,-904.12 27.62,-904.12"/>
 <polygon fill="none" stroke="#aaaaaa" points="27.62,-904.12 27.62,-917.12 76,-917.12 76,-904.12 27.62,-904.12"/>
@@ -95,6 +105,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="27.62,-830.88 27.62,-843.88 126.38,-843.88 126.38,-830.88 27.62,-830.88"/>
 <text xml:space="preserve" text-anchor="start" x="41.75" y="-835.23" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 64]</text>
 <polygon fill="none" stroke="red" stroke-width="3" points="21.12,-824.38 21.12,-923.62 132.88,-923.62 132.88,-824.38 21.12,-824.38"/>
+</a>
+</g>
 </g>
 <!-- n0&#45;&gt;n26 -->
 <g id="edge21" class="edge">
@@ -108,6 +120,7 @@
 <!-- n4 -->
 <g id="node3" class="node">
 <title>n4</title>
+<g id="a_node3"><a xlink:title="ReduceMean_68 (ReduceMean, id 4)">
 <polygon fill="#ffffff" stroke="none" points="96,-1953.5 96,-2067.5 178,-2067.5 178,-1953.5 96,-1953.5"/>
 <polygon fill="#f3f3f3" stroke="none" points="102,-2048.5 102,-2061.5 136,-2061.5 136,-2048.5 102,-2048.5"/>
 <polygon fill="none" stroke="#aaaaaa" points="102,-2048.5 102,-2061.5 136,-2061.5 136,-2048.5 102,-2048.5"/>
@@ -123,6 +136,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="102,-1959.5 102,-1972.5 172,-1972.5 172,-1959.5 102,-1959.5"/>
 <text xml:space="preserve" text-anchor="start" x="104" y="-1963.85" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 1]</text>
 <polygon fill="none" stroke="#333333" points="96,-1953.5 96,-2067.5 178,-2067.5 178,-1953.5 96,-1953.5"/>
+</a>
+</g>
 </g>
 <!-- n2&#45;&gt;n4 -->
 <g id="edge2" class="edge">
@@ -136,6 +151,7 @@
 <!-- n6 -->
 <g id="node4" class="node">
 <title>n6</title>
+<g id="a_node4"><a xlink:title="Add_71 (Add, id 6)">
 <polygon fill="#ffffff" stroke="none" points="97.62,-1807.5 97.62,-1921.5 208.38,-1921.5 208.38,-1807.5 97.62,-1807.5"/>
 <polygon fill="#f3f3f3" stroke="none" points="103.62,-1902.5 103.62,-1915.5 152,-1915.5 152,-1902.5 103.62,-1902.5"/>
 <polygon fill="none" stroke="#aaaaaa" points="103.62,-1902.5 103.62,-1915.5 152,-1915.5 152,-1902.5 103.62,-1902.5"/>
@@ -151,6 +167,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="103.62,-1813.5 103.62,-1826.5 202.38,-1826.5 202.38,-1813.5 103.62,-1813.5"/>
 <text xml:space="preserve" text-anchor="start" x="120" y="-1817.85" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 1]</text>
 <polygon fill="none" stroke="#333333" points="97.62,-1807.5 97.62,-1921.5 208.38,-1921.5 208.38,-1807.5 97.62,-1807.5"/>
+</a>
+</g>
 </g>
 <!-- n4&#45;&gt;n6 -->
 <g id="edge3" class="edge">
@@ -164,6 +182,7 @@
 <!-- n7 -->
 <g id="node5" class="node">
 <title>n7</title>
+<g id="a_node5"><a xlink:title="Sqrt_72 (Sqrt, id 7)">
 <polygon fill="#ffffff" stroke="none" points="111,-1693 111,-1775.5 193,-1775.5 193,-1693 111,-1693"/>
 <polygon fill="#f3f3f3" stroke="none" points="117,-1756.5 117,-1769.5 187,-1769.5 187,-1756.5 117,-1756.5"/>
 <polygon fill="none" stroke="#aaaaaa" points="117,-1756.5 117,-1769.5 187,-1769.5 187,-1756.5 117,-1756.5"/>
@@ -174,6 +193,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="117,-1699 117,-1712 187,-1712 187,-1699 117,-1699"/>
 <text xml:space="preserve" text-anchor="start" x="119" y="-1703.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 1]</text>
 <polygon fill="none" stroke="#333333" points="111,-1693 111,-1775.5 193,-1775.5 193,-1693 111,-1693"/>
+</a>
+</g>
 </g>
 <!-- n6&#45;&gt;n7 -->
 <g id="edge4" class="edge">
@@ -196,6 +217,7 @@
 <!-- n11 -->
 <g id="node8" class="node">
 <title>n11</title>
+<g id="a_node8"><a xlink:title="input_layernorm (Multiply, id 11)">
 <polygon fill="#ffffff" stroke="none" points="171.62,-1408.88 171.62,-1507.12 282.38,-1507.12 282.38,-1408.88 171.62,-1408.88"/>
 <polygon fill="#f3f3f3" stroke="none" points="177.62,-1488.12 177.62,-1501.12 226,-1501.12 226,-1488.12 177.62,-1488.12"/>
 <polygon fill="none" stroke="#aaaaaa" points="177.62,-1488.12 177.62,-1501.12 226,-1501.12 226,-1488.12 177.62,-1488.12"/>
@@ -210,6 +232,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="177.62,-1414.88 177.62,-1427.88 276.38,-1427.88 276.38,-1414.88 177.62,-1414.88"/>
 <text xml:space="preserve" text-anchor="start" x="191.75" y="-1419.22" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 64]</text>
 <polygon fill="none" stroke="#333333" points="171.62,-1408.88 171.62,-1507.12 282.38,-1507.12 282.38,-1408.88 171.62,-1408.88"/>
+</a>
+</g>
 </g>
 <!-- n8&#45;&gt;n11 -->
 <g id="edge7" class="edge">
@@ -223,6 +247,7 @@
 <!-- n10 -->
 <g id="node7" class="node">
 <title>n10</title>
+<g id="a_node7"><a xlink:title="norm.weight/decompress (Convert, id 10)">
 <polygon fill="#ffffff" stroke="none" points="203.88,-1547 203.88,-1661 316.12,-1661 316.12,-1547 203.88,-1547"/>
 <polygon fill="#f3f3f3" stroke="none" points="209.88,-1642 209.88,-1655 310.12,-1655 310.12,-1642 209.88,-1642"/>
 <polygon fill="none" stroke="#aaaaaa" points="209.88,-1642 209.88,-1655 310.12,-1655 310.12,-1642 209.88,-1642"/>
@@ -235,6 +260,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="209.88,-1553 209.88,-1566 310.12,-1566 310.12,-1553 209.88,-1553"/>
 <text xml:space="preserve" text-anchor="start" x="233" y="-1557.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[64]</text>
 <polygon fill="none" stroke="#333333" points="203.88,-1547 203.88,-1661 316.12,-1661 316.12,-1547 203.88,-1547"/>
+</a>
+</g>
 </g>
 <!-- n10&#45;&gt;n11 -->
 <g id="edge8" class="edge">
@@ -248,6 +275,7 @@
 <!-- n14 -->
 <g id="node10" class="node">
 <title>n14</title>
+<g id="a_node10"><a xlink:title="q_proj (MatMul, id 14)">
 <polygon fill="#ffffff" stroke="none" points="201.12,-1255 201.12,-1369 290.88,-1369 290.88,-1255 201.12,-1255"/>
 <polygon fill="#f3f3f3" stroke="none" points="207.12,-1350 207.12,-1363 245,-1363 245,-1350 207.12,-1350"/>
 <polygon fill="none" stroke="#aaaaaa" points="207.12,-1350 207.12,-1363 245,-1363 245,-1350 207.12,-1350"/>
@@ -263,6 +291,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="207.12,-1261 207.12,-1274 284.88,-1274 284.88,-1261 207.12,-1261"/>
 <text xml:space="preserve" text-anchor="start" x="210.75" y="-1265.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 64]</text>
 <polygon fill="none" stroke="#333333" points="201.12,-1255 201.12,-1369 290.88,-1369 290.88,-1255 201.12,-1255"/>
+</a>
+</g>
 </g>
 <!-- n11&#45;&gt;n14 -->
 <g id="edge9" class="edge">
@@ -276,6 +306,7 @@
 <!-- n17 -->
 <g id="node12" class="node">
 <title>n17</title>
+<g id="a_node12"><a xlink:title="k_proj (MatMul, id 17)">
 <polygon fill="#ffffff" stroke="none" points="89.12,-1255 89.12,-1369 178.88,-1369 178.88,-1255 89.12,-1255"/>
 <polygon fill="#f3f3f3" stroke="none" points="95.12,-1350 95.12,-1363 133,-1363 133,-1350 95.12,-1350"/>
 <polygon fill="none" stroke="#aaaaaa" points="95.12,-1350 95.12,-1363 133,-1363 133,-1350 95.12,-1350"/>
@@ -291,6 +322,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="95.12,-1261 95.12,-1274 172.88,-1274 172.88,-1261 95.12,-1261"/>
 <text xml:space="preserve" text-anchor="start" x="98.75" y="-1265.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 64]</text>
 <polygon fill="none" stroke="#333333" points="89.12,-1255 89.12,-1369 178.88,-1369 178.88,-1255 89.12,-1255"/>
+</a>
+</g>
 </g>
 <!-- n11&#45;&gt;n17 -->
 <g id="edge11" class="edge">
@@ -304,6 +337,7 @@
 <!-- n20 -->
 <g id="node14" class="node">
 <title>n20</title>
+<g id="a_node14"><a xlink:title="v_proj (MatMul, id 20)">
 <polygon fill="#ffffff" stroke="none" points="313.12,-1255 313.12,-1369 402.88,-1369 402.88,-1255 313.12,-1255"/>
 <polygon fill="#f3f3f3" stroke="none" points="319.12,-1350 319.12,-1363 357,-1363 357,-1350 319.12,-1350"/>
 <polygon fill="none" stroke="#aaaaaa" points="319.12,-1350 319.12,-1363 357,-1363 357,-1350 319.12,-1350"/>
@@ -319,6 +353,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="319.12,-1261 319.12,-1274 396.88,-1274 396.88,-1261 319.12,-1261"/>
 <text xml:space="preserve" text-anchor="start" x="322.75" y="-1265.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 64]</text>
 <polygon fill="none" stroke="#333333" points="313.12,-1255 313.12,-1369 402.88,-1369 402.88,-1255 313.12,-1255"/>
+</a>
+</g>
 </g>
 <!-- n11&#45;&gt;n20 -->
 <g id="edge13" class="edge">
@@ -332,6 +368,7 @@
 <!-- n13 -->
 <g id="node9" class="node">
 <title>n13</title>
+<g id="a_node9"><a xlink:title="q_proj.weight/decompress (Convert, id 13)">
 <polygon fill="#ffffff" stroke="none" points="304,-1401 304,-1515 420,-1515 420,-1401 304,-1401"/>
 <polygon fill="#f3f3f3" stroke="none" points="310,-1496 310,-1509 414,-1509 414,-1496 310,-1496"/>
 <polygon fill="none" stroke="#aaaaaa" points="310,-1496 310,-1509 414,-1509 414,-1496 310,-1496"/>
@@ -344,6 +381,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="310,-1407 310,-1420 414,-1420 414,-1407 310,-1407"/>
 <text xml:space="preserve" text-anchor="start" x="328.25" y="-1411.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[64, 64]</text>
 <polygon fill="none" stroke="#333333" points="304,-1401 304,-1515 420,-1515 420,-1401 304,-1401"/>
+</a>
+</g>
 </g>
 <!-- n13&#45;&gt;n14 -->
 <g id="edge10" class="edge">
@@ -357,6 +396,7 @@
 <!-- n21 -->
 <g id="node15" class="node">
 <title>n21</title>
+<g id="a_node15"><a xlink:title="attention (ScaledDotProductAttention, id 21)">
 <polygon fill="#ffffff" stroke="none" points="69.12,-1114.88 69.12,-1217.12 234.88,-1217.12 234.88,-1114.88 69.12,-1114.88"/>
 <polygon fill="#f3f3f3" stroke="none" points="77.12,-1196.12 77.12,-1209.12 125.71,-1209.12 125.71,-1196.12 77.12,-1196.12"/>
 <polygon fill="none" stroke="#aaaaaa" points="77.12,-1196.12 77.12,-1209.12 125.71,-1209.12 125.71,-1196.12 77.12,-1196.12"/>
@@ -374,6 +414,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="77.12,-1122.88 77.12,-1135.88 226.88,-1135.88 226.88,-1122.88 77.12,-1122.88"/>
 <text xml:space="preserve" text-anchor="start" x="116.75" y="-1127.22" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 64]</text>
 <polygon fill="none" stroke="red" stroke-width="3" points="70.62,-1116.38 70.62,-1215.62 233.38,-1215.62 233.38,-1116.38 70.62,-1116.38"/>
+</a>
+</g>
 </g>
 <!-- n14&#45;&gt;n21 -->
 <g id="edge15" class="edge">
@@ -387,6 +429,7 @@
 <!-- n16 -->
 <g id="node11" class="node">
 <title>n16</title>
+<g id="a_node11"><a xlink:title="k_proj.weight/decompress (Convert, id 16)">
 <polygon fill="#ffffff" stroke="none" points="34.38,-1401 34.38,-1515 149.62,-1515 149.62,-1401 34.38,-1401"/>
 <polygon fill="#f3f3f3" stroke="none" points="40.38,-1496 40.38,-1509 143.62,-1509 143.62,-1496 40.38,-1496"/>
 <polygon fill="none" stroke="#aaaaaa" points="40.38,-1496 40.38,-1509 143.62,-1509 143.62,-1496 40.38,-1496"/>
@@ -399,6 +442,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="40.38,-1407 40.38,-1420 143.62,-1420 143.62,-1407 40.38,-1407"/>
 <text xml:space="preserve" text-anchor="start" x="58.25" y="-1411.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[64, 64]</text>
 <polygon fill="none" stroke="#333333" points="34.38,-1401 34.38,-1515 149.62,-1515 149.62,-1401 34.38,-1401"/>
+</a>
+</g>
 </g>
 <!-- n16&#45;&gt;n17 -->
 <g id="edge12" class="edge">
@@ -421,6 +466,7 @@
 <!-- n19 -->
 <g id="node13" class="node">
 <title>n19</title>
+<g id="a_node13"><a xlink:title="v_proj.weight/decompress (Convert, id 19)">
 <polygon fill="#ffffff" stroke="none" points="442.38,-1401 442.38,-1515 557.62,-1515 557.62,-1401 442.38,-1401"/>
 <polygon fill="#f3f3f3" stroke="none" points="448.38,-1496 448.38,-1509 551.62,-1509 551.62,-1496 448.38,-1496"/>
 <polygon fill="none" stroke="#aaaaaa" points="448.38,-1496 448.38,-1509 551.62,-1509 551.62,-1496 448.38,-1496"/>
@@ -433,6 +479,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="448.38,-1407 448.38,-1420 551.62,-1420 551.62,-1407 448.38,-1407"/>
 <text xml:space="preserve" text-anchor="start" x="466.25" y="-1411.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[64, 64]</text>
 <polygon fill="none" stroke="#333333" points="442.38,-1401 442.38,-1515 557.62,-1515 557.62,-1401 442.38,-1401"/>
+</a>
+</g>
 </g>
 <!-- n19&#45;&gt;n20 -->
 <g id="edge14" class="edge">
@@ -455,6 +503,7 @@
 <!-- n22 -->
 <g id="node16" class="node">
 <title>n22</title>
+<g id="a_node16"><a xlink:title="Result_113 (Result, id 22)">
 <polygon fill="#d8e4f8" stroke="none" points="70.5,-978.75 70.5,-1061.25 123.5,-1061.25 123.5,-978.75 70.5,-978.75"/>
 <polygon fill="#f3f3f3" stroke="none" points="76.5,-1042.25 76.5,-1055.25 117.5,-1055.25 117.5,-1042.25 76.5,-1042.25"/>
 <polygon fill="none" stroke="#aaaaaa" points="76.5,-1042.25 76.5,-1055.25 117.5,-1055.25 117.5,-1042.25 76.5,-1042.25"/>
@@ -465,6 +514,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="76.5,-984.75 76.5,-997.75 117.5,-997.75 117.5,-984.75 76.5,-984.75"/>
 <text xml:space="preserve" text-anchor="start" x="87.62" y="-989.1" font-family="Helvetica,sans-Serif" font-size="7.00">out 0</text>
 <polygon fill="none" stroke="#333333" points="70.5,-978.75 70.5,-1061.25 123.5,-1061.25 123.5,-978.75 70.5,-978.75"/>
+</a>
+</g>
 </g>
 <!-- n21&#45;&gt;n22 -->
 <g id="edge18" class="edge">
@@ -478,6 +529,7 @@
 <!-- n25 -->
 <g id="node18" class="node">
 <title>n25</title>
+<g id="a_node18"><a xlink:title="o_proj (MatMul, id 25)">
 <polygon fill="#ffffff" stroke="none" points="145.12,-963 145.12,-1077 234.88,-1077 234.88,-963 145.12,-963"/>
 <polygon fill="#f3f3f3" stroke="none" points="151.12,-1058 151.12,-1071 189,-1071 189,-1058 151.12,-1058"/>
 <polygon fill="none" stroke="#aaaaaa" points="151.12,-1058 151.12,-1071 189,-1071 189,-1058 151.12,-1058"/>
@@ -493,6 +545,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="151.12,-969 151.12,-982 228.88,-982 228.88,-969 151.12,-969"/>
 <text xml:space="preserve" text-anchor="start" x="154.75" y="-973.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 64]</text>
 <polygon fill="none" stroke="#333333" points="145.12,-963 145.12,-1077 234.88,-1077 234.88,-963 145.12,-963"/>
+</a>
+</g>
 </g>
 <!-- n21&#45;&gt;n25 -->
 <g id="edge19" class="edge">
@@ -506,6 +560,7 @@
 <!-- n24 -->
 <g id="node17" class="node">
 <title>n24</title>
+<g id="a_node17"><a xlink:title="o_proj.weight/decompress (Convert, id 24)">
 <polygon fill="#ffffff" stroke="none" points="257,-1109 257,-1223 373,-1223 373,-1109 257,-1109"/>
 <polygon fill="#f3f3f3" stroke="none" points="263,-1204 263,-1217 367,-1217 367,-1204 263,-1204"/>
 <polygon fill="none" stroke="#aaaaaa" points="263,-1204 263,-1217 367,-1217 367,-1204 263,-1204"/>
@@ -518,6 +573,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="263,-1115 263,-1128 367,-1128 367,-1115 263,-1115"/>
 <text xml:space="preserve" text-anchor="start" x="281.25" y="-1119.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[64, 64]</text>
 <polygon fill="none" stroke="#333333" points="257,-1109 257,-1223 373,-1223 373,-1109 257,-1109"/>
+</a>
+</g>
 </g>
 <!-- n24&#45;&gt;n25 -->
 <g id="edge20" class="edge">
@@ -540,6 +597,7 @@
 <!-- n29 -->
 <g id="node21" class="node">
 <title>n29</title>
+<g id="a_node21"><a xlink:title="MatMul_103 (MatMul, id 29)">
 <polygon fill="#ffffff" stroke="none" points="111.5,-671 111.5,-785 202.5,-785 202.5,-671 111.5,-671"/>
 <polygon fill="#f3f3f3" stroke="none" points="117.5,-766 117.5,-779 156,-779 156,-766 117.5,-766"/>
 <polygon fill="none" stroke="#aaaaaa" points="117.5,-766 117.5,-779 156,-779 156,-766 117.5,-766"/>
@@ -555,6 +613,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="117.5,-677 117.5,-690 196.5,-690 196.5,-677 117.5,-677"/>
 <text xml:space="preserve" text-anchor="start" x="119.5" y="-681.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 256]</text>
 <polygon fill="none" stroke="#333333" points="111.5,-671 111.5,-785 202.5,-785 202.5,-671 111.5,-671"/>
+</a>
+</g>
 </g>
 <!-- n26&#45;&gt;n29 -->
 <g id="edge23" class="edge">
@@ -568,6 +628,7 @@
 <!-- n34 -->
 <g id="node24" class="node">
 <title>n34</title>
+<g id="a_node24"><a xlink:title="MatMul_99 (MatMul, id 34)">
 <polygon fill="#ffffff" stroke="none" points="224.5,-671 224.5,-785 315.5,-785 315.5,-671 224.5,-671"/>
 <polygon fill="#f3f3f3" stroke="none" points="230.5,-766 230.5,-779 269,-779 269,-766 230.5,-766"/>
 <polygon fill="none" stroke="#aaaaaa" points="230.5,-766 230.5,-779 269,-779 269,-766 230.5,-766"/>
@@ -583,6 +644,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="230.5,-677 230.5,-690 309.5,-690 309.5,-677 230.5,-677"/>
 <text xml:space="preserve" text-anchor="start" x="232.5" y="-681.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 256]</text>
 <polygon fill="none" stroke="#333333" points="224.5,-671 224.5,-785 315.5,-785 315.5,-671 224.5,-671"/>
+</a>
+</g>
 </g>
 <!-- n26&#45;&gt;n34 -->
 <g id="edge26" class="edge">
@@ -596,6 +659,7 @@
 <!-- n39 -->
 <g id="node28" class="node">
 <title>n39</title>
+<g id="a_node28"><a xlink:title="residual (Add, id 39)">
 <polygon fill="#ffffff" stroke="none" points="91.62,-114.5 91.62,-216.75 206.38,-216.75 206.38,-114.5 91.62,-114.5"/>
 <polygon fill="#f3f3f3" stroke="none" points="99.62,-195.75 99.62,-208.75 148,-208.75 148,-195.75 99.62,-195.75"/>
 <polygon fill="none" stroke="#aaaaaa" points="99.62,-195.75 99.62,-208.75 148,-208.75 148,-195.75 99.62,-195.75"/>
@@ -610,6 +674,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="99.62,-122.5 99.62,-135.5 198.38,-135.5 198.38,-122.5 99.62,-122.5"/>
 <text xml:space="preserve" text-anchor="start" x="113.75" y="-126.85" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 64]</text>
 <polygon fill="none" stroke="red" stroke-width="3" points="93.12,-116 93.12,-215.25 204.88,-215.25 204.88,-116 93.12,-116"/>
+</a>
+</g>
 </g>
 <!-- n26&#45;&gt;n39 -->
 <g id="edge32" class="edge">
@@ -623,6 +689,7 @@
 <!-- n28 -->
 <g id="node20" class="node">
 <title>n28</title>
+<g id="a_node20"><a xlink:title="gate_proj.weight/decompress (Convert, id 28)">
 <polygon fill="#ffffff" stroke="none" points="156.25,-817 156.25,-931 285.75,-931 285.75,-817 156.25,-817"/>
 <polygon fill="#f3f3f3" stroke="none" points="162.25,-912 162.25,-925 279.75,-925 279.75,-912 162.25,-912"/>
 <polygon fill="none" stroke="#aaaaaa" points="162.25,-912 162.25,-925 279.75,-925 279.75,-912 162.25,-912"/>
@@ -635,6 +702,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="162.25,-823 162.25,-836 279.75,-836 279.75,-823 162.25,-823"/>
 <text xml:space="preserve" text-anchor="start" x="185" y="-827.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[256, 64]</text>
 <polygon fill="none" stroke="#333333" points="156.25,-817 156.25,-931 285.75,-931 285.75,-817 156.25,-817"/>
+</a>
+</g>
 </g>
 <!-- n28&#45;&gt;n29 -->
 <g id="edge24" class="edge">
@@ -648,6 +717,7 @@
 <!-- n31 -->
 <g id="node22" class="node">
 <title>n31</title>
+<g id="a_node22"><a xlink:title="Swish_105 (Swish, id 31)">
 <polygon fill="#ffffff" stroke="none" points="131.5,-540.75 131.5,-639 222.5,-639 222.5,-540.75 131.5,-540.75"/>
 <polygon fill="#f3f3f3" stroke="none" points="137.5,-620 137.5,-633 176,-633 176,-620 137.5,-620"/>
 <polygon fill="none" stroke="#aaaaaa" points="137.5,-620 137.5,-633 176,-633 176,-620 137.5,-620"/>
@@ -662,6 +732,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="137.5,-546.75 137.5,-559.75 216.5,-559.75 216.5,-546.75 137.5,-546.75"/>
 <text xml:space="preserve" text-anchor="start" x="139.5" y="-551.1" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 256]</text>
 <polygon fill="none" stroke="#333333" points="131.5,-540.75 131.5,-639 222.5,-639 222.5,-540.75 131.5,-540.75"/>
+</a>
+</g>
 </g>
 <!-- n29&#45;&gt;n31 -->
 <g id="edge25" class="edge">
@@ -675,6 +747,7 @@
 <!-- n35 -->
 <g id="node25" class="node">
 <title>n35</title>
+<g id="a_node25"><a xlink:title="Multiply_106 (Multiply, id 35)">
 <polygon fill="#ffffff" stroke="none" points="146.62,-402.62 146.62,-500.88 257.38,-500.88 257.38,-402.62 146.62,-402.62"/>
 <polygon fill="#f3f3f3" stroke="none" points="152.62,-481.88 152.62,-494.88 201,-494.88 201,-481.88 152.62,-481.88"/>
 <polygon fill="none" stroke="#aaaaaa" points="152.62,-481.88 152.62,-494.88 201,-494.88 201,-481.88 152.62,-481.88"/>
@@ -689,6 +762,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="152.62,-408.62 152.62,-421.62 251.38,-421.62 251.38,-408.62 152.62,-408.62"/>
 <text xml:space="preserve" text-anchor="start" x="164.5" y="-412.98" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 256]</text>
 <polygon fill="none" stroke="#333333" points="146.62,-402.62 146.62,-500.88 257.38,-500.88 257.38,-402.62 146.62,-402.62"/>
+</a>
+</g>
 </g>
 <!-- n31&#45;&gt;n35 -->
 <g id="edge28" class="edge">
@@ -702,6 +777,7 @@
 <!-- n33 -->
 <g id="node23" class="node">
 <title>n33</title>
+<g id="a_node23"><a xlink:title="up_proj.weight/decompress (Convert, id 33)">
 <polygon fill="#ffffff" stroke="none" points="307.38,-817 307.38,-931 428.62,-931 428.62,-817 307.38,-817"/>
 <polygon fill="#f3f3f3" stroke="none" points="313.38,-912 313.38,-925 422.62,-925 422.62,-912 313.38,-912"/>
 <polygon fill="none" stroke="#aaaaaa" points="313.38,-912 313.38,-925 422.62,-925 422.62,-912 313.38,-912"/>
@@ -714,6 +790,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="313.38,-823 313.38,-836 422.62,-836 422.62,-823 313.38,-823"/>
 <text xml:space="preserve" text-anchor="start" x="332" y="-827.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[256, 64]</text>
 <polygon fill="none" stroke="#333333" points="307.38,-817 307.38,-931 428.62,-931 428.62,-817 307.38,-817"/>
+</a>
+</g>
 </g>
 <!-- n33&#45;&gt;n34 -->
 <g id="edge27" class="edge">
@@ -736,6 +814,7 @@
 <!-- n38 -->
 <g id="node27" class="node">
 <title>n38</title>
+<g id="a_node27"><a xlink:title="MatMul_110 (MatMul, id 38)">
 <polygon fill="#ffffff" stroke="none" points="176.12,-248.75 176.12,-362.75 265.88,-362.75 265.88,-248.75 176.12,-248.75"/>
 <polygon fill="#f3f3f3" stroke="none" points="182.12,-343.75 182.12,-356.75 220,-356.75 220,-343.75 182.12,-343.75"/>
 <polygon fill="none" stroke="#aaaaaa" points="182.12,-343.75 182.12,-356.75 220,-356.75 220,-343.75 182.12,-343.75"/>
@@ -751,6 +830,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="182.12,-254.75 182.12,-267.75 259.88,-267.75 259.88,-254.75 182.12,-254.75"/>
 <text xml:space="preserve" text-anchor="start" x="185.75" y="-259.1" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[?, ?, 64]</text>
 <polygon fill="none" stroke="#333333" points="176.12,-248.75 176.12,-362.75 265.88,-362.75 265.88,-248.75 176.12,-248.75"/>
+</a>
+</g>
 </g>
 <!-- n35&#45;&gt;n38 -->
 <g id="edge30" class="edge">
@@ -764,6 +845,7 @@
 <!-- n37 -->
 <g id="node26" class="node">
 <title>n37</title>
+<g id="a_node26"><a xlink:title="down_proj.weight/decompress (Convert, id 37)">
 <polygon fill="#ffffff" stroke="none" points="279.38,-394.75 279.38,-508.75 412.62,-508.75 412.62,-394.75 279.38,-394.75"/>
 <polygon fill="#f3f3f3" stroke="none" points="285.38,-489.75 285.38,-502.75 406.62,-502.75 406.62,-489.75 285.38,-489.75"/>
 <polygon fill="none" stroke="#aaaaaa" points="285.38,-489.75 285.38,-502.75 406.62,-502.75 406.62,-489.75 285.38,-489.75"/>
@@ -776,6 +858,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="285.38,-400.75 285.38,-413.75 406.62,-413.75 406.62,-400.75 285.38,-400.75"/>
 <text xml:space="preserve" text-anchor="start" x="310" y="-405.1" font-family="Helvetica,sans-Serif" font-size="7.00">out 0: fp32[64, 256]</text>
 <polygon fill="none" stroke="#333333" points="279.38,-394.75 279.38,-508.75 412.62,-508.75 412.62,-394.75 279.38,-394.75"/>
+</a>
+</g>
 </g>
 <!-- n37&#45;&gt;n38 -->
 <g id="edge31" class="edge">
@@ -798,6 +882,7 @@
 <!-- n40 -->
 <g id="node29" class="node">
 <title>n40</title>
+<g id="a_node29"><a xlink:title="Result_112 (Result, id 40)">
 <polygon fill="#d8e4f8" stroke="none" points="122.5,0 122.5,-82.5 175.5,-82.5 175.5,0 122.5,0"/>
 <polygon fill="#f3f3f3" stroke="none" points="128.5,-63.5 128.5,-76.5 169.5,-76.5 169.5,-63.5 128.5,-63.5"/>
 <polygon fill="none" stroke="#aaaaaa" points="128.5,-63.5 128.5,-76.5 169.5,-76.5 169.5,-63.5 128.5,-63.5"/>
@@ -808,6 +893,8 @@
 <polygon fill="none" stroke="#aaaaaa" points="128.5,-6 128.5,-19 169.5,-19 169.5,-6 128.5,-6"/>
 <text xml:space="preserve" text-anchor="start" x="139.62" y="-10.35" font-family="Helvetica,sans-Serif" font-size="7.00">out 0</text>
 <polygon fill="none" stroke="#333333" points="122.5,0 122.5,-82.5 175.5,-82.5 175.5,0 122.5,0"/>
+</a>
+</g>
 </g>
 <!-- n39&#45;&gt;n40 -->
 <g id="edge34" class="edge">

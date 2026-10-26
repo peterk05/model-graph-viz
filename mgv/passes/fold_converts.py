@@ -63,7 +63,7 @@ class FoldConstantConvertsPass(TransformationPass):
         return graph
 
     @classmethod
-    def from_options(cls, options: dict[str, str]) -> "FoldConstantConvertsPass":
+    def from_options(cls, options: dict[str, str]) -> FoldConstantConvertsPass:
         cls.check_option_names(options)
         if "types" in options:
             return cls(types=split_list(options["types"]))

@@ -4,14 +4,14 @@
 
 | Model | Passes | Nodes / edges before | Nodes / edges after | Load + build graph (s) | Passes (s) | Render SVG (s) |
 |---|---|---|---|---|---|---|
-| small_cnn | (none) | 27 / 29 | 27 / 29 | 0.13 | 0.000 | 0.02 |
+| small_cnn | (none) | 27 / 29 | 27 / 29 | 0.12 | 0.000 | 0.02 |
 | small_cnn | hide-constants | 27 / 29 | 16 / 17 | 0.00 | 0.000 | 0.02 |
 | small_cnn | hide-constants,highlight | 27 / 29 | 16 / 17 | 0.00 | 0.000 | 0.02 |
 | mini_attention | (none) | 41 / 46 | 41 / 46 | 0.00 | 0.000 | 0.02 |
-| mini_attention | hide-constants | 41 / 46 | 29 / 34 | 0.00 | 0.000 | 0.02 |
+| mini_attention | hide-constants | 41 / 46 | 29 / 34 | 0.00 | 0.000 | 0.03 |
 | mini_attention | hide-constants,highlight | 41 / 46 | 29 / 34 | 0.00 | 0.000 | 0.02 |
 | mini_attention | fold-converts,hide-constants,highlight | 41 / 46 | 21 / 26 | 0.00 | 0.000 | 0.02 |
-| tinyllama | (none) | 3168 / 3741 | 3168 / 3741 | 0.14 | 0.000 | 617.13 |
-| tinyllama | hide-constants | 3168 / 3741 | 1911 / 2429 | 0.11 | 0.003 | 63.36 |
-| tinyllama | hide-constants,highlight | 3168 / 3741 | 1911 / 2429 | 0.11 | 0.002 | 67.44 |
-| tinyllama | fold-converts,hide-constants,detach-fanout,highlight | 3168 / 3741 | 1770 / 2025 | 0.12 | 0.004 | 0.48 |
+| tinyllama | (none) | 3168 / 3741 | 3168 / 3741 | 0.13 | 0.000 | 590.47 |
+| tinyllama | hide-constants | 3168 / 3741 | 1911 / 2429 | 0.14 | 0.004 | 64.38 |
+| tinyllama | hide-constants,highlight | 3168 / 3741 | 1911 / 2429 | 0.14 | 0.005 | 69.96 |
+| tinyllama | fold-converts,hide-constants,detach-fanout,highlight | 3168 / 3741 | 1770 / 2025 | 0.15 | 0.008 | 0.54 |

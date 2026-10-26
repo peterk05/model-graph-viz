@@ -80,5 +80,14 @@ def test_invalid_xml_gives_clear_error(tmp_path):
     path = tmp_path / "broken.xml"
     path.write_text("<net><this is not valid")
     path.with_suffix(".bin").write_bytes(b"")
-    with pytest.raises(ModelLoadError, match="could not read"):
+    with pytest.raises(ModelLoadError, match="could not read") as caught:
+        load_model(path)
+    assert "Exception from" not in str(caught.value)   # the reason, not the C++ location
+
+
+def test_xml_that_is_not_openvino_ir_gives_clear_error(tmp_path):
+    path = tmp_path / "settings.xml"
+    path.write_text("<settings><colour>red</colour></settings>")
+    path.with_suffix(".bin").write_bytes(b"")
+    with pytest.raises(ModelLoadError, match="not an OpenVINO IR file"):
         load_model(path)

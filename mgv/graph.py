@@ -239,7 +239,7 @@ class Graph:
 
     # ---------- copying ----------
 
-    def copy(self) -> "Graph":
+    def copy(self) -> Graph:
         """Return an independent copy, so changes to it never touch this graph."""
         new = Graph(self.name)
         for node in self.nodes.values():

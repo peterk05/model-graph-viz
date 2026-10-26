@@ -88,7 +88,10 @@ class GraphvizRenderer(Renderer):
 
         output_tensors = _output_tensor_text(graph)
         for node in graph.nodes.values():
-            dot.node(_node_key(node.id), label=self._node_label(graph, node, output_tensors))
+            # Labels shorten long names, so the hover tooltip carries the full name (which is
+            # what the highlight pass needs) and the unique id (used by "shared:" and "#id").
+            dot.node(_node_key(node.id), label=self._node_label(graph, node, output_tensors),
+                     tooltip=f"{node.name} ({node.type}, id {node.id})")
 
         for edge in graph.edges.values():
             tensor = format_tensor(edge.dtype, edge.shape)

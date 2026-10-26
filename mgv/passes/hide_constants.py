@@ -56,7 +56,7 @@ class HideConstantsPass(TransformationPass):
         return graph
 
     @classmethod
-    def from_options(cls, options: dict[str, str]) -> "HideConstantsPass":
+    def from_options(cls, options: dict[str, str]) -> HideConstantsPass:
         cls.check_option_names(options)
         if "keep-for" in options:
             return cls(keep_for=split_list(options["keep-for"]))

@@ -39,7 +39,7 @@ class HighlightNodesPass(TransformationPass):
         return self.names - self.matched
 
     @classmethod
-    def from_options(cls, options: dict[str, str]) -> "HighlightNodesPass":
+    def from_options(cls, options: dict[str, str]) -> HighlightNodesPass:
         cls.check_option_names(options)
         names = split_list(options.get("names", ""))
         if "names-file" in options:

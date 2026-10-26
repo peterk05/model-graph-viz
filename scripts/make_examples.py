@@ -7,7 +7,7 @@ between the BENCHMARK markers.
 Usage (from the repository root):
     python scripts/build_example_models.py      # small models (already committed)
     bash scripts/export_tinyllama.sh            # TinyLlama, ~2.2 GB, not committed
-    python scripts/make_examples.py             # all examples + benchmark (~5 min)
+    python scripts/make_examples.py             # all examples + benchmark (~15 min)
     python scripts/make_examples.py --skip-tinyllama
 """
 
@@ -146,12 +146,15 @@ def main() -> int:
 
     rows: list[tuple[str, str, VisualizationReport]] = []
     failures = 0
+    skipped = 0
     for example in MODELS:
         if example.name == "tinyllama" and args.skip_tinyllama:
+            skipped += 1
             continue
         if not example.path.exists():
             print(f"skipping {example.name}: {example.path} not found "
                   f"(see scripts/export_tinyllama.sh)", file=sys.stderr)
+            skipped += 1
             continue
         for file_name, passes in variants(example):
             output = EXAMPLES / example.name / file_name
@@ -168,6 +171,10 @@ def main() -> int:
 
     env = environment()
     table = benchmark_table(rows)
+    if skipped:
+        # A partial table must not overwrite the full benchmark (e.g. the TinyLlama rows).
+        print(f"\n{table}\n\nsome models were skipped, so benchmark.md and README.md were not changed")
+        return 1 if failures else 0
     (EXAMPLES / "benchmark.md").write_text(f"# Benchmark\n\n**Test environment:** {env}\n\n{table}\n",
                                            encoding="utf-8")
     update_readme(table, env)

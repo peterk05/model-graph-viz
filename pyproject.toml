@@ -25,3 +25,14 @@ filterwarnings = [
     # graphviz starts the `dot` subprocess while OpenVINO's threads exist; harmless here.
     "ignore:This process .* is multi-threaded:DeprecationWarning",
 ]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true   # openvino and graphviz ship no type stubs

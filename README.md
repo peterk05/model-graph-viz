@@ -57,6 +57,12 @@ python scripts/build_example_models.py    # rebuilds the two small example model
 python scripts/make_examples.py           # all SVGs in examples/ + the benchmark table below
 ```
 
+`make_examples.py` takes about 15 minutes, almost all of it Graphviz drawing the
+untransformed TinyLlama graph (`--skip-tinyllama` does the small models in seconds and
+leaves the benchmark table alone). Different Graphviz versions place nodes slightly
+differently, so regenerated SVGs can differ in coordinates; their content (nodes, edges,
+labels) is the same.
+
 ## Usage
 
 ### Command line
@@ -105,6 +111,10 @@ Errors are reported in one line with exit code 1, for example
 `error: unknown pass 'hide-constant' (available: detach-fanout, fold-converts, hide-constants, highlight)`,
 `error: weights file not found: 'model.bin' (an OpenVINO IR model needs the .bin file next to the .xml file)`.
 Names given to `highlight` that match no node produce a warning.
+
+To find names to highlight, hover a node in an SVG: the tooltip shows its full name and
+id (labels shorten long names). Or list them in Python:
+`[n.name for n in load_model("model.xml").of_type("MatMul")]`.
 
 ### Python API
 
@@ -155,7 +165,7 @@ g.add_edge(w.id, 0, mm.id, 1, shape=["1024", "768"], dtype="fp32")
 ## Examples
 
 Three OpenVINO models, each rendered with several pass combinations. All SVGs open
-in a browser (hover an edge to see its tensor type).
+in a browser (hover a node for its full name and id, or an edge for its tensor type).
 
 | Model | Why it is included | SVGs |
 |---|---|---|
@@ -201,12 +211,12 @@ Looking at TinyLlama in Netron shows two separate problems:
    `beam_idx`, the KV-cache `Gather`, and a shape `Concat`. That is 242 edges running from
    the top of the graph down through every layer, which hides the per-layer structure.
    **`detach-fanout`** replaces each of those edges with a small dashed tag next to the
-   consumer, e.g. `↳ Unsqueeze #812 out 0`. The `#812` is the source node's unique id, so
-   it can still be traced, and the source node notes `out 0: 44 uses shown as ↳ #812
+   consumer, e.g. `↳ Unsqueeze #57 out 0`. The `#57` is the source node's unique id, so
+   it can still be traced, and the source node notes `out 0: 44 uses shown as ↳ #57
    references`. Each layer then appears as its own compact block.
 
 Together with `hide-constants` this takes TinyLlama from 3,168 nodes / 3,741 edges to
-about 1,770 nodes (including about 240 small reference tags) / 2,025 edges. Every
+1,770 nodes (including 242 small reference tags) / 2,025 edges. Every
 decoder layer becomes a self-contained block, and Graphviz renders it much faster
 (see [Performance](#performance)).
 
@@ -274,7 +284,8 @@ model_graph_viewer.py        CLI entry point
 * **Ports drawn as table cells.** Each node is an HTML-like Graphviz table with one cell per
   input port at the top and per output port at the bottom, and edges attach to the
   exact cells (`n5:out1 -> n9:in0`). The output cell also shows the tensor type
-  (`out 0: fp32[?, ?, 2048]`), and every edge has it as a hover tooltip.
+  (`out 0: fp32[?, ?, 2048]`), and every edge has it as a hover tooltip. Long names are
+  shortened in the label, and each node's tooltip has the full name and unique id.
 
 ## Extensibility
 
@@ -351,7 +362,7 @@ pip install -r requirements.txt
 python -m pytest          # or: python -m pytest -v
 ```
 
-65 tests, all running in a couple of seconds. None of them needs TinyLlama or a network
+67 tests, all running in a couple of seconds. None of them needs TinyLlama or a network
 connection: synthetic graphs are built in code, and the tiny OpenVINO model for the
 parser and end-to-end tests is generated into a temporary folder by
 `tests/conftest.py`.
@@ -359,7 +370,7 @@ parser and end-to-end tests is generated into a temporary folder by
 | File | Covers (brief section 4) |
 |---|---|
 | `tests/test_graph.py` | Node/edge creation, unique ids vs duplicate names, port indices, multiple outputs and fan-out, parallel edges between the same nodes, dynamic and missing shapes, removal keeps the graph valid, independent copies, `validate()` |
-| `tests/test_parser.py` | OpenVINO → Graph: op types, roles, connections and port indices (including `Add(x, x)` and `Split` outputs), dynamic dims, dtypes, attributes without constant values, clear errors for missing / unsupported / weightless / corrupt files |
+| `tests/test_parser.py` | OpenVINO → Graph: op types, roles, connections and port indices (including `Add(x, x)` and `Split` outputs), dynamic dims, dtypes, attributes without constant values, clear errors for missing / unsupported / weightless / corrupt / non-IR files |
 | `tests/test_passes.py` | Highlight (only matching nodes, duplicate names, unmatched names). Hide-constants (single consumer, shared constants with ids, port preserved, unrelated and parallel edges preserved, constant kept while it has a visible edge, missing metadata). Both custom passes. Option parsing and errors. |
 | `tests/test_pipeline.py` | Order of execution, input graph untouched, combined passes give a valid graph, order-dependent results, per-pass timing |
 | `tests/test_render.py` | Well-formed SVG with one node/edge group per graph node/edge, port cells and port-to-port edges, attributes, red border only on highlighted nodes, hidden-constant annotations, reference tags, unknown op types and escaping, edge labels option, large-graph layout setting |
@@ -377,45 +388,49 @@ parser and end-to-end tests is generated into a temporary folder by
 
 | Model | Passes | Nodes / edges before | Nodes / edges after | Load + build graph (s) | Passes (s) | Render SVG (s) |
 |---|---|---|---|---|---|---|
-| small_cnn | (none) | 27 / 29 | 27 / 29 | 0.13 | 0.000 | 0.02 |
+| small_cnn | (none) | 27 / 29 | 27 / 29 | 0.12 | 0.000 | 0.02 |
 | small_cnn | hide-constants | 27 / 29 | 16 / 17 | 0.00 | 0.000 | 0.02 |
 | small_cnn | hide-constants,highlight | 27 / 29 | 16 / 17 | 0.00 | 0.000 | 0.02 |
 | mini_attention | (none) | 41 / 46 | 41 / 46 | 0.00 | 0.000 | 0.02 |
-| mini_attention | hide-constants | 41 / 46 | 29 / 34 | 0.00 | 0.000 | 0.02 |
+| mini_attention | hide-constants | 41 / 46 | 29 / 34 | 0.00 | 0.000 | 0.03 |
 | mini_attention | hide-constants,highlight | 41 / 46 | 29 / 34 | 0.00 | 0.000 | 0.02 |
 | mini_attention | fold-converts,hide-constants,highlight | 41 / 46 | 21 / 26 | 0.00 | 0.000 | 0.02 |
-| tinyllama | (none) | 3168 / 3741 | 3168 / 3741 | 0.14 | 0.000 | 617.13 |
-| tinyllama | hide-constants | 3168 / 3741 | 1911 / 2429 | 0.11 | 0.003 | 63.36 |
-| tinyllama | hide-constants,highlight | 3168 / 3741 | 1911 / 2429 | 0.11 | 0.002 | 67.44 |
-| tinyllama | fold-converts,hide-constants,detach-fanout,highlight | 3168 / 3741 | 1770 / 2025 | 0.12 | 0.004 | 0.48 |
+| tinyllama | (none) | 3168 / 3741 | 3168 / 3741 | 0.13 | 0.000 | 590.47 |
+| tinyllama | hide-constants | 3168 / 3741 | 1911 / 2429 | 0.14 | 0.004 | 64.38 |
+| tinyllama | hide-constants,highlight | 3168 / 3741 | 1911 / 2429 | 0.14 | 0.005 | 69.96 |
+| tinyllama | fold-converts,hide-constants,detach-fanout,highlight | 3168 / 3741 | 1770 / 2025 | 0.15 | 0.008 | 0.54 |
 <!-- BENCHMARK:END -->
+
+The first row's load time includes OpenVINO's one-time start-up.
 
 ### Where the time goes, and what I changed because of it
 
-* **Parsing and passes are fast.** Building the 3,168-node TinyLlama graph and running
-  every pass is linear in nodes + edges. On a synthetic 5,400-node graph
-  (`tests/test_scalability.py`) all four passes together take a few hundredths of a
-  second.
-* **Graphviz layout is the bottleneck.** Measured during development on the TinyLlama
-  graph (Graphviz 2.43, 2-core cloud VM):
+* **Parsing and passes are fast.** Building the 3,168-node TinyLlama graph takes about
+  0.1 s and all passes together a few milliseconds; every pass is linear in nodes +
+  edges. On a synthetic 5,400-node graph (`tests/test_scalability.py`) all four passes
+  together take a few hundredths of a second.
+* **Graphviz layout is the bottleneck.** In the table above, rendering is over 99% of the
+  time for TinyLlama: about 10 minutes for the untransformed graph, about 1 minute after
+  `hide-constants`, and half a second with all passes. While developing I found three
+  causes (measured with Graphviz 2.43 on a 2-core cloud VM, so the absolute numbers
+  differ from the table):
   * With dtype/shape as **edge labels**, `dot` had not finished the simplified graph
     after 10 minutes: every edge label becomes an extra node in Graphviz's layout.
     The tensor types moved to the **output-port cells** and to **edge tooltips** instead.
-  * `dot -v` showed the remaining time going to the horizontal positioning step (a
-    network-simplex problem over ~157,000 helper nodes created by long edges). For graphs
-    over 500 nodes the renderer sets `nslimit=1`, which caps that step for a slightly
-    less tidy layout: about **38 s** for `fold-converts,hide-constants` and about **110 s**
-    for the untransformed graph.
+  * `dot -v` showed most of the remaining time going to the horizontal positioning step
+    (a network-simplex problem over ~157,000 helper nodes created by long edges). For
+    graphs over 500 nodes the renderer sets `nslimit=1`, which caps that step in exchange
+    for a slightly less tidy layout.
   * The long edges themselves came from the six tensors shared by all 22 layers. Removing
-    them with **`detach-fanout`** brought the same render down to about **1 s**, and made
-    the picture readable.
+    them with **`detach-fanout`** is what brings the render down to under a second, and it
+    is also what makes the picture readable.
 * **Memory:** one graph copy per pipeline run (none in `visualize()`), never one per pass.
   Constant values are never loaded into the graph. OpenVINO memory-maps the `.bin` file.
 
 ## Known limitations
 
-* **Rendering very large graphs is slow.** Graphviz `dot` is the bottleneck (minutes for
-  the unsimplified TinyLlama). Possible improvements: render a sub-graph (e.g. one decoder
+* **Rendering very large graphs is slow.** Graphviz `dot` is the bottleneck (about 10
+  minutes for the unsimplified TinyLlama, and the resulting 9 MB SVG is slow to open). Possible improvements: render a sub-graph (e.g. one decoder
   layer, selected by a pass), collapse repeated layers into one node, or use an
   interactive, incremental web viewer for huge graphs instead of a static SVG.
 * **`nslimit` trades layout quality for speed** on graphs over 500 nodes. The threshold
@@ -430,3 +445,8 @@ parser and end-to-end tests is generated into a temporary folder by
   meant for visualization only and must run before `hide-constants`.
 * **Node names for `highlight` must match exactly.** Pattern matching (e.g. regular
   expressions) would be a simple extension.
+
+## Use of AI tools
+
+AI coding assistants were used during development, as the brief allows (section 7).
+The design decisions and trade-offs are documented above.

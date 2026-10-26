@@ -13,7 +13,7 @@ The fix
 -------
 For every node output that feeds at least ``min-uses`` consumers, replace each of
 those edges with a small *reference* node placed next to the consumer, e.g.
-``↳ Unsqueeze #812 out 0``. The reference keeps the original consumer input port and
+``↳ Unsqueeze #57 out 0``. The reference keeps the original consumer input port and
 the tensor's dtype/shape, and the source node gets a note saying where its uses went.
 The id after ``#`` is the source's unique node id, so the connection can always be
 traced back.
@@ -68,7 +68,7 @@ class DetachFanoutPass(TransformationPass):
         return graph
 
     @classmethod
-    def from_options(cls, options: dict[str, str]) -> "DetachFanoutPass":
+    def from_options(cls, options: dict[str, str]) -> DetachFanoutPass:
         cls.check_option_names(options)
         raw = options.get("min-uses", "8")
         try:
